@@ -1,0 +1,44 @@
+<div class="container-fluid">
+    <div class="row ps-4 pe-4">
+        <div class="container border border-primary rounded-4" data-bs-theme="dark">
+            <div class="titulo pt-3 pb-2">
+                <h3 class="text-white text-center">Liquidación Subsidios</h3>
+            </div>
+            <div class="mb-3">
+                <label class="form-label text-white">Cédula</label>
+                <input [(ngModel)]="cedula" type="number" class="form-control" placeholder="Ingrese su cédula">
+            </div>
+            <div class="mb-3">
+                <label class="form-label text-white">Nombre</label>
+                <input [(ngModel)]="nombre" type="text" class="form-control" placeholder="Ingrese su nombre">
+            </div>
+            <div class="mb-3">
+                <label class="form-label text-white">Apellidos</label>
+                <input [(ngModel)]="apellidos" type="text" class="form-control" placeholder="Ingrese sus apellidos">
+            </div>
+            <div class="mb-3">
+                <label class="form-label text-white">Edad</label>
+                <input [(ngModel)]="edad" type="number" class="form-control" placeholder="Digite su edad">
+            </div>
+            <div class="boton text-center mb-4 d-grid gap-2 col-3 mx-auto">
+                <app-calculo [edad]="edad" (valPagar)="calcularSubsidio($event)"></app-calculo>
+            </div>
+            <div class="datos text-white" *ngIf="mostrar">
+                <div class="row">
+                    <h4 class="text-center">Valor a pagar</h4>
+                </div>
+                <div class="row">
+                    <p class="text-center">
+                        Nombre: {{nombreMostrar}}
+                    </p>
+                </div>
+                <div class="row">
+                    <p class="text-center">Edad: {{edadMostrar}}</p>
+                </div>
+                <div class="row">
+                    <p class="text-center">Val. a pagar: ${{valPagar}}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
